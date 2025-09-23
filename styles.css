@@ -1,0 +1,176 @@
+body {
+    font-family: 'Poppins', sans-serif;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+html body{
+    margin: 0;
+	padding: 0;	
+	height: 100%;
+}
+
+.main{
+	flex: 1;
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
+}
+/* Header bar stretches full width */
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #1e2a38;
+    width: 100%;
+    height: 100px; /* adjust height as needed */
+    box-sizing: border-box;
+    padding: 0 20px; /* horizontal padding for some space on edges */
+}
+
+/* Left part takes only as much space as it needs */
+.nav-left {
+    flex: 0 0 auto; /* do not grow or shrink */
+}
+
+/* The links in left */
+.nav-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Center container grows and centers content */
+.nav-center {
+    flex: 1 1 auto; /* grow to fill remaining space */
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Center links styling */
+.nav-link {
+    color: #ccd4dd;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.5s ease;
+}
+
+.nav-link:visited {
+    color: #ccd4dd;
+}
+
+.nav-link:hover {
+    color: #9eacc0;
+    transform: scale(1.1);
+}
+
+.nav-link.active {
+    color: #ffffff;
+}
+.nav-link.active:hover {
+    color: #ffffff;
+    transform: none;      /* no scale */
+    cursor: default;      /* optional: normal arrow instead of hand */
+}
+
+.content{
+	margin: 0;
+	max-width: 500px;
+}
+
+.content img{
+	height: 50px;
+	width: 50px;
+}
+
+.programming{
+	display: flex;
+	align-items: center;
+	gap: 30px; 
+}
+
+.electronics {
+	display: flex;
+	align-items: center;
+	gap: 30px; 	
+}
+
+.learning {
+	display: flex;
+	align-items: center;
+	gap: 30px; 	
+}
+
+.quickly {
+	display: flex;
+	align-items: center;
+	gap: 30px;  	
+}
+
+.team {
+	display: flex;
+	align-items: center;
+	gap: 30px; 	
+}
+
+hr{
+	border: none;
+	color: black;
+	height: 1px;
+	background-color: black;
+	border-radius: 2px;
+	
+}
+
+.footer {
+    background-color: #1e2a38;
+    display: flex;
+    align-items: center;
+    color: white; 
+    height: 75px;              /* fixed footer height */
+    padding: 0 20px;
+    justify-content: space-between;
+}
+
+.timprijatelj p {
+    margin: 0;                 /* remove default <p> margin */
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.socials2 {
+    background-color: #ccd4dd;
+    width: 30px;               /* fixed size for square */
+    height: 30px;
+    border-radius: 6px;
+    display: flex;             /* center the img */
+    align-items: center;
+    justify-content: center;
+	transition: background-color 0.4s, transform 0.5s;
+}
+
+.socials2:hover{
+	background-color: #9eacc0;
+	transform: scale(1.1);
+}
+
+.socials2 img {
+    width: 20px;                /* icon size inside */
+    height: 20px;
+}
+
+.socials2 a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
