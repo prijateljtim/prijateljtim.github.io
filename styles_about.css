@@ -70,6 +70,108 @@ html body{
     transform: none;      /* no scale */
     cursor: default;      /* optional: normal arrow instead of hand */
 }
+
+.hamburger {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 2; /* mobile only if needed */
+    margin-left: auto; /* push to the right */
+    border: 2px solid white; /* solid white border */
+    border-radius: 6px;      /* keeps the rounded corners */
+}
+
+@media (max-width: 768px) {
+    .nav-center {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(30, 42, 56, 0.9); /* dark blue with 90% opacity */
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100vw;
+        padding: 10px 0;
+        z-index: 10; /* stay above other content */
+    }
+
+    .nav-center.show {
+        display: flex; /* show when toggled */
+    }
+
+    .hamburger {
+        position: relative;
+        width: 30px;
+        height: 30px; /* keep original height */
+        cursor: pointer;
+        margin-left: auto;
+        z-index: 20;
+    }
+
+    /* All bars */
+    .bar {
+        position: absolute;
+        left: 0; /* or adjust for centering */
+        height: 3px;
+        background-color: white;
+        border-radius: 3px;
+        transition: all 0.4s ease;
+    }
+
+    /* Set different widths */
+    .bar1 {
+        width: 70%;
+        top: 6px;
+        left: 15%;
+    }
+
+    .bar2 {
+        width: 70%;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 15%;
+    }
+
+    .bar3 {
+        width: 70%;
+        bottom: 6px;
+        left: 15%;
+    }
+
+    /* Transform into perfect X */
+    .hamburger.active .bar1 {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    .hamburger.active .bar2 {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar3 {
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+    .nav-left {
+        order: 1;                /* Tim Prijatelj stays on left */
+    }
+
+    .nav-link {
+        text-align: center;      /* center links in dropdown */
+        padding: 15px 0;         /* spacing between links */
+        width: 100%;             /* full width each link */
+    }
+
+    .hamburger.active {
+        transform: rotate(90deg);
+    }
+}
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;               /* hide on desktop */
+    }
+}
 .main{
     flex: 1;
     display: flex;
