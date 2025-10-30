@@ -1,313 +1,264 @@
-/* styles.css */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    color: #e2e8f0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.6;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+html body{
+    margin: 0;
+	padding: 0;	
+	height: 100%;
 }
 
-/* HEADER */
+.main{
+	flex: 1;
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center;     /* vertical center */
+}
+/* Header bar stretches full width */
 .header {
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    height: 80px;
-    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background-color: #1e2a38;
+    height: 100px;
+    padding: 0 20px;
 }
 
+/* Left part takes only as much space as it needs */
+.nav-left {
+    flex: 0 0 auto; /* do not grow or shrink */
+}
+
+/* The links in left */
 .nav-title {
-    font-size: 1.8rem;
+    font-size: 1.8em;
     font-weight: 700;
     color: #ffffff;
     text-decoration: none;
-    letter-spacing: -0.5px;
 }
 
-.nav-title.active {
-    color: #60a5fa;
-}
-
+/* Center container grows and centers content */
 .nav-center {
+    flex: 1 1 auto; /* grow to fill remaining space */
     display: flex;
-    gap: 32px;
+    justify-content: center;
+    gap: 40px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
+.hamburger {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 2; /* mobile only if needed */
+    margin-left: auto; /* push to the right */
+    border: 2px solid white; /* solid white border */
+    border-radius: 6px;      /* keeps the rounded corners */
+}
+
+@media (max-width: 768px) {
+    .nav-center {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(30, 42, 56, 0.9); /* dark blue with 90% opacity */
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100vw;
+        padding: 10px 0;
+        z-index: 10;             /* stay above other content */
+    }
+
+    .nav-center.show {
+        display: flex;           /* show when toggled */
+    }
+
+    .hamburger {
+        position: relative;
+        width: 30px;
+        height: 30px; /* keep original height */
+        cursor: pointer;
+        margin-left: auto;
+        z-index: 20;
+    }
+
+    /* All bars */
+    .bar {
+        position: absolute;
+        left: 0;               /* or adjust for centering */
+        height: 3px;
+        background-color: white;
+        border-radius: 3px;
+        transition: all 0.4s ease;
+    }
+
+    /* Set different widths */
+    .bar1 { width: 70%; top: 6px; left: 15%; }
+    .bar2 { width: 70%; top: 50%; transform: translateY(-50%); left: 15%; }
+    .bar3 { width: 70%; bottom: 6px; left: 15%; }
+
+    /* Transform into perfect X */
+    .hamburger.active .bar1 {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    .hamburger.active .bar2 {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar3 {
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+
+
+    .nav-left {
+        order: 1;                /* Tim Prijatelj stays on left */
+    }
+
+    .nav-link {
+        text-align: center;      /* center links in dropdown */
+        padding: 15px 0;         /* spacing between links */
+        width: 100%;             /* full width each link */
+    }
+
+    .hamburger.active {
+        transform: rotate(90deg);
+    }
+}
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;               /* hide on desktop */
+    }
+}
+
+/* Center links styling */
 .nav-link {
-    color: #cbd5e1;
+    color: #ccd4dd;
+    font-size: 1.2em;
     font-weight: 500;
     text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    position: relative;
+    transition: color 0.3s ease, transform 0.5s ease;
+}
+
+.nav-link:visited {
+    color: #ccd4dd;
 }
 
 .nav-link:hover {
-    color: #60a5fa;
-    transform: translateY(-2px);
+    color: #9eacc0;
+    transform: scale(1.1);
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -6px;
-    left: 50%;
-    background: #60a5fa;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* HAMBURGER */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    padding: 4px;
-    border: 1.5px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.hamburger .bar {
-    width: 18px;
-    height: 2px;
-    background: white;
-    border-radius: 2px;
-    transition: all 0.4s ease;
-    margin: 0 auto;
-}
-
-.hamburger.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* MAIN */
-.main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-}
-
-.profile-card {
-    background: rgba(30, 42, 62, 0.7);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 24px;
-    padding: 48px 40px;
-    max-width: 520px;
-    width: 100%;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-}
-
-.profile-card h3 {
-    font-size: 1.1rem;
-    color: #94a3b8;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-
-.profile-card h1 {
-    font-size: 2.8rem;
+.nav-link.active {
     color: #ffffff;
-    margin-bottom: 16px;
-    font-weight: 700;
-    letter-spacing: -1px;
+}
+.nav-link.active:hover {
+    color: #ffffff;
+    transform: none;      /* no scale */
+    cursor: default;      /* optional: normal arrow instead of hand */
 }
 
-.bio {
-    font-size: 1.1rem;
-    color: #cbd5e1;
-    margin-bottom: 32px;
-    line-height: 1.7;
+.content{
+	margin: 0;
+	max-width: 500px;
 }
 
-.section-title {
-    font-size: 1.3rem;
-    color: #e2e8f0;
-    margin: 32px 0 20px;
-    font-weight: 600;
+.content img{
+	height: 50px;
+	width: 50px;
 }
 
-.strengths-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
+.programming{
+	display: flex;
+	align-items: center;
+	gap: 30px; 
 }
 
-.strength-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 16px 20px;
-    border-radius: 16px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+.electronics {
+	display: flex;
+	align-items: center;
+	gap: 30px; 	
 }
 
-.strength-item:hover {
-    background: rgba(96, 165, 250, 0.15);
-    border-color: rgba(96, 165, 250, 0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.2);
+.learning {
+	display: flex;
+	align-items: center;
+	gap: 30px; 	
 }
 
-.strength-item img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
+.quickly {
+	display: flex;
+	align-items: center;
+	gap: 30px;  	
 }
 
-.strength-item p {
-    font-size: 1.1rem;
-    color: #e2e8f0;
-    font-weight: 500;
+.team {
+	display: flex;
+	align-items: center;
+	gap: 30px; 	
 }
 
-/* FOOTER */
+hr{
+	border: none;
+	color: black;
+	height: 1px;
+	background-color: black;
+	border-radius: 2px;
+	
+}
+
 .footer {
-    background: rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(12px);
-    padding: 0 24px;
-    height: 80px;
+    background-color: #1e2a38;
     display: flex;
     align-items: center;
+    color: white; 
+    height: 75px;              /* fixed footer height */
+    padding: 0 20px;
     justify-content: space-between;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.95rem;
 }
 
-.copyright {
-    color: #94a3b8;
+.timprijatelj p {
+    margin: 0;                 /* remove default <p> margin */
 }
 
 .socials {
     display: flex;
-    gap: 12px;
+    align-items: center;
+    gap: 10px;
 }
 
-.social-link {
-    background: #334155;
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
+.socials2 {
+    background-color: #ccd4dd;
+    width: 30px;               /* fixed size for square */
+    height: 30px;
+    border-radius: 6px;
+    display: flex;             /* center the img */
+    align-items: center;
+    justify-content: center;
+	transition: background-color 0.4s, transform 0.5s;
+}
+
+.socials2:hover{
+	background-color: #9eacc0;
+	transform: scale(1.1);
+}
+
+.socials2 img {
+    width: 20px;                /* icon size inside */
+    height: 20px;
+}
+
+.socials2 a {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.social-link:hover {
-    background: #60a5fa;
-    transform: translateY(-4px) scale(1.1);
-    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3);
-    border-color: transparent;
-}
-
-.social-link img {
-    width: 22px;
-    height: 22px;
-    filter: brightness(0) invert(1);
-}
-
-/* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-center {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: rgba(15, 23, 42, 0.95);
-        backdrop-filter: blur(16px);
-        flex-direction: column;
-        align-items: center;
-        padding: 24px 0;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.4s ease;
-        z-index: 99;
-    }
-
-    .nav-center.show {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-link {
-        width: 100%;
-        padding: 16px 0;
-        font-size: 1.2rem;
-    }
-
-    .profile-card {
-        padding: 36px 24px;
-        margin: 20px;
-        border-radius: 20px;
-    }
-
-    .profile-card h1 {
-        font-size: 2.3rem;
-    }
-
-    .strength-item {
-        padding: 14px 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-card h1 {
-        font-size: 2rem;
-    }
-
-    .strength-item p {
-        font-size: 1rem;
-    }
+    width: 100%;
+    height: 100%;
 }
