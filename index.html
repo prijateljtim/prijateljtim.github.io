@@ -3,112 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home - Tim Prijatelj</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="header">
+    <!-- HEADER -->
+    <header class="header">
         <div class="nav-left">
             <a href="index.html" class="nav-title active">Tim Prijatelj</a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">
-            <span class="bar bar1"></span>
-            <span class="bar bar2"></span>
-            <span class="bar bar3"></span>
-        </div> <!-- menu on right -->
-        <div class="nav-center">
-            <a href="Projects.html" class="nav-link">Work and projects</a>
-            <a href="Aboutme.html" class="nav-link">About me</a>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
-    </div>
+        <nav class="nav-center">
+            <a href="Projects.html" class="nav-link">Work & Projects</a>
+            <a href="Aboutme.html" class="nav-link">About Me</a>
+        </nav>
+    </header>
 
-    <div class="main">
-    <div class="content">
+    <!-- MAIN CONTENT -->
+    <main class="main">
+        <section class="profile-card">
             <h3>Who Am I?</h3>
-            <h2>Tim Prijatelj</h2>
-            <p>I am currently pursuing a master's degree in electrical engineering with a specialization
-                in electronics at the University of Ljubljana.</p>
-            <div>
-                <h3>My key strengths include:</h3>
-                <div class="programming">
-					<div>
-						<img src="Photos/Programming.png" alt="Programming">
-					</div>
-                    <div>
-                        <p>Programming</p>
-                    </div>
+            <h1>Tim Prijatelj</h1>
+            <p class="bio">I am currently pursuing a master's degree in electrical engineering with a specialization in electronics at the University of Ljubljana.</p>
+
+            <h3 class="section-title">My Key Strengths</h3>
+            <div class="strengths-grid">
+                <div class="strength-item">
+                    <img src="Photos/Programming.png" alt="Programming">
+                    <p>Programming</p>
                 </div>
-                <hr>
-                <div class="electronics">
-					<div>
-						<img src="Photos/Electronics_design.png" alt="Electronics design">
-					</div>
-                    <div>
-                        <p>Electronics design</p>
-                    </div>
+                <div class="strength-item">
+                    <img src="Photos/Electronics_design.png" alt="Electronics design">
+                    <p>Electronics Design</p>
                 </div>
-                <hr>
-                <div class="learning">
-					<div >
-						<img src="Photos/Learning.png" alt="Electronics design">
-					</div>
-                    <div>
-                        <p>Learning new things</p>
-                    </div>
+                <div class="strength-item">
+                    <img src="Photos/Learning.png" alt="Learning">
+                    <p>Learning New Things</p>
                 </div>
-                <hr>
-                <div class = "quickly">
-					<div>
-						<img src="Photos/Quick_learning.png" alt="Qucik learner">
-					</div>				
-                    <div>
-                        <p>Quickly learning and adapting to new technologies</p>
-                    </div>
+                <div class="strength-item">
+                    <img src="Photos/Quick_learning.png" alt="Quick learner">
+                    <p>Quick Learning & Adapting</p>
                 </div>
-                <hr>
-                <div class="team">
-					<div>
-						<img src="Photos/Team.png" alt="Teamwork">
-					</div>					
-                    <div>
-                        <p>Teamwork</p>
-                    </div>
+                <div class="strength-item">
+                    <img src="Photos/Team.png" alt="Teamwork">
+                    <p>Teamwork</p>
                 </div>
             </div>
-        </div>
-</div>
-<div class ="footer"><!-- Footer -->
-    <div class="timprijatelj">
-        <p>	&#169;Tim Prijatelj  — All rights reserved.</p>
-    </div>
-    <div class="socials">
-        <div class="socials2">
-            <a href="https://www.instagram.com/tim_prijatelj/" target="_blank">
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="copyright">© Tim Prijatelj — All rights reserved.</p>
+        <div class="socials">
+            <a href="https://www.instagram.com/tim_prijatelj/" target="_blank" class="social-link">
                 <img src="Photos/Intagram.svg" alt="Instagram">
             </a>
-        </div>
-        <div class="socials2">
-            <a href="https://www.linkedin.com/in/tim-prijatelj-14b061161/" target="_blank">
+            <a href="https://www.linkedin.com/in/tim-prijatelj-14b061161/" target="_blank" class="social-link">
                 <img src="Photos/Linkedin.svg" alt="LinkedIn">
             </a>
-        </div>
-        <div class="socials2">
-            <a href="mailto:prijateljtim@gmail.com">
-                <img src="Photos/Mail.svg" alt="Gmail">
+            <a href="mailto:prijateljtim@gmail.com" class="social-link">
+                <img src="Photos/Mail.svg" alt="Email">
             </a>
         </div>
-    </div>
-</div>
+    </footer>
+
     <script>
         function toggleMenu() {
             const menu = document.querySelector('.nav-center');
             const hamburger = document.querySelector('.hamburger');
-
             menu.classList.toggle('show');
-            hamburger.classList.toggle('active'); // rotate hamburger
+            hamburger.classList.toggle('active');
         }
     </script>
 </body>
