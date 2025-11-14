@@ -1,270 +1,226 @@
+/* ---------- GLOBAL ---------- */
 body {
-    font-family: 'Poppins', sans-serif;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
-html body{
-    margin: 0;
-	padding: 0;	
-	height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f172a;
+  color: white;
+  line-height: 1.5;
 }
 
-/* Header bar stretches full width */
+/* ---------- HEADER (identical to projects) ---------- */
 .header {
-    display: flex;
-    align-items: center;
-    background-color: #1e2a38;
-    width: 100%;
-    height: 100px; /* adjust height as needed */
-    box-sizing: border-box;
-    padding: 0 20px; /* horizontal padding for some space on edges */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(1rem, 1.2vw, 2rem) clamp(2rem, 3vw, 4rem);
+  background: rgba(15,23,42,0.9);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* Left part takes only as much space as it needs */
-.nav-left {
-    flex: 0 0 auto; /* do not grow or shrink */
+.logo a  {
+  font-size: clamp(1.5rem, 1.8vw, 2rem);
+  font-weight: 700;
+  color: #60a5fa;
+  text-decoration: none;
 }
 
-/* The links in left */
-.nav-title {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: #ffffff;
-    text-decoration: none;
+.nav {
+  display: flex;
+  gap: clamp(1rem, 2vw, 3rem);
 }
 
-/* Center container grows and centers content */
-.nav-center {
-    flex: 1 1 auto; /* grow to fill remaining space */
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-/* Center links styling */
+/* Nav links - same visual style & responsive font-size as index */
 .nav-link {
-    color: #ccd4dd;
-    font-size: 1.2em;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.5s ease;
+  position: relative;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 1vw, 1.2rem);
+  transition: color 0.3s ease;
 }
 
-.nav-link:visited {
-    color: #ccd4dd;
+/* underline animation identical to index */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #60a5fa;
+  transition: width 0.3s ease;
+  border-radius: 2px;
 }
 
 .nav-link:hover {
-    color: #9eacc0;
-    transform: scale(1.1);
+  color: #ffffff;
 }
 
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* active nav link style (keeps same visual weight) */
 .nav-link.active {
-    color: #ffffff;
-}
-.nav-link.active:hover {
-    color: #ffffff;
-    transform: none;      /* no scale */
-    cursor: default;      /* optional: normal arrow instead of hand */
+  color: #ffffff;
 }
 
+
+/* ---------- HAMBURGER ---------- */
 .hamburger {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    order: 2; /* mobile only if needed */
-    margin-left: auto; /* push to the right */
-    border: 2px solid white; /* solid white border */
-    border-radius: 6px;      /* keeps the rounded corners */
+  display: none;
+  width: clamp(24px, 2vw, 32px);
+  height: clamp(18px, 1.5vw, 24px);
+  position: relative;
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .nav-center {
-        display: none;
-        flex-direction: column;
-        background-color: rgba(30, 42, 56, 0.9); /* dark blue with 90% opacity */
-        position: absolute;
-        top: 100px;
-        left: 0;
-        width: 100vw;
-        padding: 10px 0;
-        z-index: 10; /* stay above other content */
-    }
-
-    .nav-center.show {
-        display: flex; /* show when toggled */
-    }
-
-    .hamburger {
-        position: relative;
-        width: 30px;
-        height: 30px; /* keep original height */
-        cursor: pointer;
-        margin-left: auto;
-        z-index: 20;
-    }
-
-    /* All bars */
-    .bar {
-        position: absolute;
-        left: 0; /* or adjust for centering */
-        height: 3px;
-        background-color: white;
-        border-radius: 3px;
-        transition: all 0.4s ease;
-    }
-
-    /* Set different widths */
-    .bar1 {
-        width: 70%;
-        top: 6px;
-        left: 15%;
-    }
-
-    .bar2 {
-        width: 70%;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 15%;
-    }
-
-    .bar3 {
-        width: 70%;
-        bottom: 6px;
-        left: 15%;
-    }
-
-    /* Transform into perfect X */
-    .hamburger.active .bar1 {
-        top: 50%;
-        transform: translateY(-50%) rotate(45deg);
-    }
-
-    .hamburger.active .bar2 {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar3 {
-        top: 50%;
-        transform: translateY(-50%) rotate(-45deg);
-    }
-    .nav-left {
-        order: 1;                /* Tim Prijatelj stays on left */
-    }
-
-    .nav-link {
-        text-align: center;      /* center links in dropdown */
-        padding: 15px 0;         /* spacing between links */
-        width: 100%;             /* full width each link */
-    }
-
-    .hamburger.active {
-        transform: rotate(90deg);
-    }
-}
-@media (min-width: 769px) {
-    .hamburger {
-        display: none;               /* hide on desktop */
-    }
-}
-.main{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* horizontally center everything inside */
-    padding: 40px 0;     /* optional top/bottom padding */
-    text-align: center;  /* makes headings & paragraphs centered */
-}
-.school{
-    display: flex;
-    flex-wrap: wrap;             /* allow wrapping to next line */
-    justify-content: center;     /* center the row */
-    gap: 20px;                   /* space between cards */
-    max-width: 70%;             /* take full available width */
+.bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
 }
 
-.school > div {
-    flex: 0 0 350px;             /* fixed width 300px, no grow/shrink */
-    box-sizing: border-box;
-    background-color: #f5f5f5;   /* optional: card background */
-    padding: 20px;               /* spacing inside card */
-    border-radius: 8px;          /* rounded corners */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* subtle shadow */
+.bar:nth-child(1) { top: 0; }
+.bar:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.bar:nth-child(3) { bottom: 0; }
+
+.hamburger.active .bar:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
 }
-.project{
-    padding-top: 40px;
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
 }
 
-.myskills{
-    padding-top: 40px;
-}
-.skills{
-    display: flex;
-    flex-wrap: wrap;             /* allow wrapping to next line */
-    justify-content: center;     /* center the row */
-    gap: 20px;                   /* space between cards */
-    max-width: 70%;             /* take full available width */
+/* ---------- MAIN ---------- */
+main {
+  padding: clamp(20px, 3vw, 60px);
+  text-align: center;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
-.skills > div {
-    flex: 0 0 350px;             /* fixed width 300px, no grow/shrink */
-    box-sizing: border-box;
-    background-color: #f5f5f5;   /* optional: card background */
-    padding: 20px;               /* spacing inside card */
-    border-radius: 8px;          /* rounded corners */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* subtle shadow */
+/* Headings */
+h2 {
+  margin-top: 0;
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  color: #ffffff;
 }
 
+/* ---------- CARD LAYOUT ---------- */
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(20px, 2vw, 40px);
+  margin-top: clamp(20px, 2vw, 40px);
+}
+
+.card {
+  width: clamp(300px, 22vw, 350px);
+  background: rgba(255,255,255,0.05);
+  padding: clamp(16px, 1.5vw, 24px);
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.skills-section h2{
+    margin-top: 60px;
+}
+
+.card h3 {
+  color: #60a5fa;
+  margin-bottom: 10px;
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+}
+
+.card p {
+  color: #cbd5e1;
+  line-height: 1.5;
+  font-size: clamp(0.95rem, 1vw, 1rem);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.05);
+  background: rgba(96,165,250,0.2);
+}
 .footer {
-    background-color: #1e2a38;
-    display: flex;
-    align-items: center;
-    color: white; 
-    height: 75px;              /* fixed footer height */
-    padding: 0 20px;
-    justify-content: space-between;
+  text-align: center;
+  padding: clamp(20px, 3vw, 40px);
+  background: rgba(15,23,42,0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
 }
 
-.timprijatelj p {
-    margin: 0;                 /* remove default <p> margin */
+.footer .socials {
+  display: flex;
+  gap: clamp(16px, 1.5vw, 24px);
+  justify-content: center;
 }
 
-.socials {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.footer img {
+  width: clamp(24px, 1.8vw, 32px);
+  height: auto;
+  filter: brightness(1) invert(1);
+  transition: transform 0.3s, filter 0.3s;
 }
 
-.socials2 {
-    background-color: #ccd4dd;
-    width: 30px;               /* fixed size for square */
-    height: 30px;
-    border-radius: 6px;
-    display: flex;             /* center the img */
-    align-items: center;
-    justify-content: center;
-	transition: background-color 0.4s, transform 0.5s;
+.footer img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.3) invert(1);
 }
 
-.socials2:hover{
-	background-color: #9eacc0;
-	transform: scale(1.1);
+.footer p {
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  color: #cbd5e1;
 }
 
-.socials2 img {
-    width: 20px;                /* icon size inside */
-    height: 20px;
-}
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
 
-.socials2 a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .nav {
+    display:none;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 70px);
+    background: #0f172a;
+    padding-top: 30px;
+    gap: 30px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .nav.show { display: flex; }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  .card {
+    width: 90%;
+  }
 }
+

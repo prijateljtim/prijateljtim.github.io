@@ -1,103 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About me</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles_about.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles_about.css">
 </head>
 <body>
 
-<div class="header">
-    <div class="nav-left">
-        <a href="index.html" class="nav-title">Tim Prijatelj</a>
-    </div>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo"><a href="index.html">Tim Prijatelj</a></div>
+
+    <nav class="nav">
+      <a href="Projects.html" class="nav-link">Work & Projects</a>
+      <a href="Aboutme.html" class="nav-link active">About Me</a>
+    </nav>
+
+    <!-- Hamburger -->
     <div class="hamburger" onclick="toggleMenu()">
-        <span class="bar bar1"></span>
-        <span class="bar bar2"></span>
-        <span class="bar bar3"></span>
-    </div> <!-- menu on right -->
-    <div class="nav-center">
-        <a href="Projects.html" class="nav-link">Work and projects</a>
-        <a href="Aboutme.html" class="nav-link active">About me</a>
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
     </div>
-</div>
+  </header>
 
-    <div class="main">
-       <h2>Education</h2>
-        <div class = "school">
-       <div>
-           <h3>High School</h3>
-           <div><p>I attended high school in Krško, where I completed a program in electrical technician.</p></div>
-       </div>
-        <div>
-            <h3>Bachelor's degree</h3>
-            <div><p>I graduated from the Faculty of Electrical Engineering in Ljubljana, specializing in Electronics.</p></div>
-        </div>
-        <div>
-            <h3>Master's degree</h3>
-            <div><p>I am currently pursuing a Master’s degree in Electronics at the Faculty of Electrical Engineering, University of Ljubljana.</p></div>
-        </div>
-        </div>
-        <h2 class="myskills">My skills</h2>
-        <div class = "skills">
-        <div>
-            <h3>Programming languages</h3>
-            <div><p>I am very familiar with C, C++, Verilog, VHDL, Python and others.</p></div>
-        </div>
-        <div>
-            <h3>Circuit design</h3>
-            <div><p>I have experience using Altium Designer.</p></div>
-        </div>    
-        <div>
-            <h3>Front/Back development</h3>
-            <div><p>Worked on front-end and back-end for my projects.</p></div>
-        </div>
-        <div>
-            <h3>Databases</h3>
-            <div><p>Worked with SQL.</p></div>
-        </div>
-        <div>
-            <h3>Operating systems</h3>
-            <div><p>Very familiar with Linux and Windows.</p></div>
-        </div>
-        </div>
-    </div>
+  <!-- Main content -->
+  <main class="main">
 
-<div class ="footer"><!-- Footer -->
-    <div class="timprijatelj">
-        <p>	&#169;Tim Prijatelj  — All rights reserved.</p>
-    </div>
+    <!-- Education Section -->
+    <section class="school-section">
+      <h2>Education</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>High School</h3>
+          <p>I attended high school in Krško, where I completed a program in electrical technician.</p>
+        </div>
+        <div class="card">
+          <h3>Bachelor's Degree</h3>
+          <p>I graduated from the Faculty of Electrical Engineering in Ljubljana, specializing in Electronics.</p>
+        </div>
+        <div class="card">
+          <h3>Master's Degree</h3>
+          <p>I am currently pursuing a Master' s degree in Electronics at the Faculty of Electrical Engineering, University of Ljubljana.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+      <h2>My Skills</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Programming Languages</h3>
+          <p>I am very familiar with C, C++, Verilog, VHDL, Python, and others.</p>
+        </div>
+        <div class="card">
+          <h3>PCB Design</h3>
+          <p>I have experience in Altium Designer and PCB design.</p>
+        </div>
+        <div class="card">
+          <h3>Front/Back-end Development</h3>
+          <p>Worked on both front-end and back-end for my projects.</p>
+        </div>
+        <div class="card">
+          <h3>Databases</h3>
+          <p>Worked with SQL databases.</p>
+        </div>
+        <div class="card">
+          <h3>Operating Systems</h3>
+          <p>Very familiar with Linux and Windows.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
     <div class="socials">
-        <div class="socials2">
-            <a href="https://www.instagram.com/tim_prijatelj/" target="_blank">
-                <img src="Photos/Intagram.svg" alt="Instagram">
-            </a>
-        </div>
-        <div class="socials2">
-            <a href="https://www.linkedin.com/in/tim-prijatelj-14b061161/" target="_blank">
-                <img src="Photos/Linkedin.svg" alt="LinkedIn">
-            </a>
-        </div>
-        <div class="socials2">
-            <a href="mailto:prijateljtim@gmail.com">
-                <img src="Photos/Mail.svg" alt="Gmail">
-            </a>
-        </div>
+      <a href="https://www.instagram.com/tim_prijatelj/" target="_blank"><img src="Photos/Intagram.svg" alt="Instagram"></a>
+      <a href="https://si.linkedin.com/in/tim-prijatelj-14b061161" target="_blank"><img src="Photos/Linkedin.svg" alt="LinkedIn"></a>
+      <a href="mailto:prijateljtim@gmail.com"><img src="Photos/Mail.svg" alt="Mail"></a>
     </div>
-</div>
-<script>
+    <p>© Tim Prijatelj - All rights reserved</p>
+  </footer>
+
+  <!-- Hamburger Script -->
+  <script>
     function toggleMenu() {
-        const menu = document.querySelector('.nav-center');
-        const hamburger = document.querySelector('.hamburger');
-
-        menu.classList.toggle('show');
-        hamburger.classList.toggle('active'); // rotate hamburger
+      document.querySelector('.nav').classList.toggle('show');
+      document.querySelector('.hamburger').classList.toggle('active');
     }
-</script>
+  </script>
 </body>
-
 </html>
-

@@ -1,115 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Work and projects</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles_projects.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work and Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles_projects.css">
 </head>
 <body>
 
-<div class="header">
-    <div class="nav-left">
-        <a href="index.html" class="nav-title">Tim Prijatelj</a>
-    </div>
+  <!-- Navbar -->
+  <header class="header">
+    <div class="logo"><a href="index.html">Tim Prijatelj</a></div>
+
+    <nav class="nav">
+      <a href="Projects.html" class="nav-link active">Work & Projects</a>
+      <a href="Aboutme.html" class="nav-link">About Me</a>
+    </nav>
+
+    <!-- Hamburger -->
     <div class="hamburger" onclick="toggleMenu()">
-        <span class="bar bar1"></span>
-        <span class="bar bar2"></span>
-        <span class="bar bar3"></span>
-    </div> <!-- menu on right -->
-    <div class="nav-center">
-        <a href="Projects.html" class="nav-link active">Work and projects</a>
-        <a href="Aboutme.html" class="nav-link">About me</a>
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
     </div>
-</div>
+  </header>
 
-<div class="main">
-        <h2>Work experince</h2>
-    <div class="workexp">
-        <div>
-            <h3>Elektro Kozinc</h3>
-            <div><p>I was involved in the assembly, wiring, and detailed labeling of electrical cabinets used in industrial and commercial installations.</p></div>
+  <!-- Main Content -->
+  <main>
+    <section class="workexp-section">
+      <h2>Work Experience</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Elektro Kozinc</h3>
+          <p>I was involved in the assembly, wiring, and detailed labeling of electrical cabinets used in industrial and commercial installations.</p>
         </div>
-        <div>
-            <h3>Eltag d.o.o.</h3>
-            <div><p> I was responsible for programming programmable logic controllers (PLCs) and designing electrical schematics using EPLAN.</p></div>
+        <div class="card">
+          <h3>Eltag d.o.o.</h3>
+          <p>I was responsible for programming PLCs and designing electrical schematics using EPLAN.</p>
         </div>
-        <div>
-            <h3>Preis Sevnica</h3>
-            <div><p> During my internship at the company, I was actively involved in the maintenance and servicing of various machines and technical equipment. My responsibilities included performing routine inspections, identifying faults, and assisting in repairs to ensure optimal operation and minimal downtime.</p></div>
+        <div class="card">
+          <h3>Preis Sevnica</h3>
+          <p>During my internship, I was actively involved in maintenance and servicing of machines and technical equipment.</p>
         </div>
-        <div>
-            <h3>Gazela d.o.o.</h3>
-            <div><p>I was responsible for maintaining power supplies and assembling various measurement systems.</p></div>
+        <div class="card">
+          <h3>Gazela d.o.o.</h3>
+          <p>I was responsible for maintaining power supplies and assembling measurement systems.</p>
         </div>
-        <div>
-            <h3>Krško Nuclear Power Plant</h3>
-            <div><p>I performed various electrical tasks, such as laying and routing cables according to technical specifications.</p></div>
+        <div class="card">
+          <h3>Krško Nuclear Power Plant</h3>
+          <p>I performed electrical tasks, such as laying and routing cables according to technical specifications.</p>
         </div>
-        <div>
-            <h3>Metronik d.o.o.</h3>
-            <div><p>In my role as a project engineer, I programmed PLCs and conducted field testing to ensure proper functionality and system reliability. I also developed VBA scripts to automate tasks and managed SQL databases by programming, maintaining, and optimizing them.
-                I was involved in the implementation of SCADA systems, including configuration and customization to meet project requirements. Part of my responsibilities included preparing, editing, and maintaining technical documentation to support system design, operation, and maintenance.</p></div>
+        <div class="card">
+          <h3>Metronik d.o.o.</h3>
+          <p>As a project engineer, I programmed PLCs, tested systems, wrote VBA scripts, managed SQL databases, and implemented SCADA systems.</p>
         </div>
-        <div>
-            <h3>LAIT - Laboratory for Information Technology</h3>
-            <div><p>I worked on researching faster GMSK modulation and data transmission techniques. I programmed FPGA devices and developed software solutions using Python. Currently working on the development and research of a custom protocol for real-time applications.</p></div>
+        <div class="card">
+          <h3>LAIT - Laboratory for Information Technology</h3>
+          <p>I was researching fast GMSK modulation, programming FPGA devices, and developing software in Python. Currently, I am developing and researching a custom protocol for real-time applications.</p>
         </div>
-        <div>
-            <h3>L-Tek</h3>
-            <div><p>I assisted in the production department, working with electronic components.</p></div>
+        <div class="card">
+          <h3>L-Tek</h3>
+          <p>I assisted in the production department, working with electronic components.</p>
         </div>
-    </div>
-    <h2 class ="project">Projects</h2>
-    <div class="projcetexp">
-        <div>
-            <h3>Remote-controlled thermostat</h3>
-            <div><p>I developed the thermostat using an ESP32 microcontroller, which received temperature data from a connected sensor. The system was remotely controlled via a mobile application, allowing users to monitor and adjust settings in real time.</p></div>
+      </div>
+    </section>
+
+    <section class="projects-section">
+      <h2>Projects</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Remote-controlled Thermostat</h3>
+          <p>Developed with ESP32, receiving temperature data from a sensor. Controlled remotely via mobile app for real-time monitoring and adjustments.</p>
         </div>
-        <div>
-            <h3>System for Measuring Particulate Matter (PM)</h3>
-            <div><p>I developed a particulate matter monitoring system using an ESP32 microcontroller and an SDS011 dust sensor. The ESP32 collected real-time PM2.5 and PM10 data from the sensor and stored it in an SQL database. I also designed and built a custom website to display the collected data, allowing users to monitor air quality remotely and in real time. This project involved full-stack development: hardware integration, data acquisition, database management, and front-end web development. I plan to add this project to this website in the future, including detailed information and visuals.</p></div>
+        <div class="card">
+          <h3>System for Measuring Particulate Matter (PM)</h3>
+          <p>ESP32 and SDS011 sensor are used to collect PM2.5 and PM10 data, which are stored in an SQL database. A custom website displays the data in real time. This is a full-stack project. I hope to implement it on this website in the future.</p>
         </div>
-        <div>
-            <h3>Other projects</h3>
-            <div><p>I have designed and built a few custom PCBs and programmed a custom microcontroller for embedded applications. In addition, I’ve worked on multiple FPGA-based projects, where I implemented digital logic and hardware interfaces. Most recently, I’ve been building this website.</p></div>
+        <div class="card">
+          <h3>Comparative Analysis of SDR Latency on x86 and FPGA Architectures Using GMSK Modulation</h3>
+          <p>SDR Latency Comparison on x86 vs FPGA - Implemented GMSK modulation on both platforms, measured transmission delays, analyzed performance for real-time applications, and published a research paper on the results.</p>
         </div>
-    </div>
-</div>
-<div class ="footer"><!-- Footer -->
-    <div class="timprijatelj">
-        <p>	&#169;Tim Prijatelj  — All rights reserved.</p>
-    </div>
+        <div class="card">
+          <h3>Other Projects</h3>
+          <p>I designed custom PCBs, programmed microcontrollers, worked on FPGA-based projects and developed this website.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
     <div class="socials">
-        <div class="socials2">
-            <a href="https://www.instagram.com/tim_prijatelj/" target="_blank">
-                <img src="Photos/Intagram.svg" alt="Instagram">
-            </a>
-        </div>
-        <div class="socials2">
-            <a href="https://www.linkedin.com/in/tim-prijatelj-14b061161/" target="_blank">
-                <img src="Photos/Linkedin.svg" alt="LinkedIn">
-            </a>
-        </div>
-        <div class="socials2">
-            <a href="mailto:prijateljtim@gmail.com">
-                <img src="Photos/Mail.svg" alt="Gmail">
-            </a>
-        </div>
+      <a href="https://www.instagram.com/tim_prijatelj/" target="_blank"><img src="Photos/Intagram.svg" alt="Instagram"></a>
+      <a href="https://si.linkedin.com/in/tim-prijatelj-14b061161" target="_blank"><img src="Photos/Linkedin.svg" alt="LinkedIn"></a>
+      <a href="mailto:prijateljtim@gmail.com"><img src="Photos/Mail.svg" alt="Mail"></a>
     </div>
-</div>
-<script>
+    <p>© Tim Prijatelj - All rights reserved</p>
+  </footer>
+
+  <script>
     function toggleMenu() {
-        const menu = document.querySelector('.nav-center');
-        const hamburger = document.querySelector('.hamburger');
-
-        menu.classList.toggle('show');
-        hamburger.classList.toggle('active'); // rotate hamburger
+      document.querySelector('.nav').classList.toggle('show');
+      document.querySelector('.hamburger').classList.toggle('active');
     }
-</script>
+  </script>
 </body>
-
 </html>
-
